@@ -10,10 +10,12 @@ spec:
     repoURL: https://helm.github.io/examples
     targetRevision: 0.1.0
     helm:
-      parameters: |
-        image:
-          repository: teroahonen/nodejs
-          tag: latest
+      parameters:
+        - name: image.repository
+          value: teroahonen/nodejs
+        - name: image.tag
+          value: latest
+
       releaseName: nodejs
   destination:
     server: "https://kubernetes.default.svc"
