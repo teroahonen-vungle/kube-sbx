@@ -13,7 +13,7 @@ spec:
   source:
     path: yamls-with-argocd
     repoURL: 'https://github.com/teroahonen-vungle/kube-sbx.git'
-    targetRevision: master
+    targetRevision: main
     directory:
       recurse: true
   syncPolicy:
