@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-example
+  namespace: datainfra-team
+  labels:
+    team: datainfra
+spec:
+  destination:
+    namespace: datainfra-team
+    server: 'https://kubernetes.default.svc'
+  project: default
+  source:
+    path: yamls-with-argocd
+    repoURL: 'https://github.com/teroahonen-vungle/kube-sbx.git'
+    targetRevision: master
+    directory:
+      recurse: true
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
