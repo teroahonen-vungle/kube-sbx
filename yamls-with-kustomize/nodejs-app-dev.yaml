@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nodejs-app-dev
+  namespace: datainfra-team
+  labels:
+    team: datainfra
+spec:
+  destination:
+    namespace: datainfra-nodejs-dev
+    server: 'https://kubernetes.default.svc'
+  project: default
+  source:
+    path: yamls-with-kustomize/nodejs/overlays/dev
+    repoURL: 'https://github.com/teroahonen-vungle/kube-sbx.git'
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
