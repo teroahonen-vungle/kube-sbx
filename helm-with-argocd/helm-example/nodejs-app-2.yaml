@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nodejs-2
+  namespace: datainfra-team
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    chart: nodejs
+    repoURL: https://raw.githubusercontent.com/teroahonen-vungle/kube-sbx/main
+    targetRevision: 1.0.0
+    helm:
+      values: |-
+        image:
+          repository: teroahonen/nodejs
+          tag: latest
+      releaseName: nodejs-2-from-argocd
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: datainfra-testing
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
