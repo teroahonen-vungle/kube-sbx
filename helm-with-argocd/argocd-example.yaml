@@ -11,7 +11,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   project: default
   source:
-    path: yamls-with-argocd
+    path: helm-with-argocd
     repoURL: 'https://github.com/teroahonen-vungle/kube-sbx.git'
     targetRevision: main
     directory:
