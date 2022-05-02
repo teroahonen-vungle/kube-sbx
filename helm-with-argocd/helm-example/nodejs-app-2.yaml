@@ -14,7 +14,7 @@ spec:
         image:
           repository: teroahonen/nodejs
           tag: latest
-
+        replicaCount: 4
       releaseName: nodejs-from-argocd-2
   destination:
     server: "https://kubernetes.default.svc"
