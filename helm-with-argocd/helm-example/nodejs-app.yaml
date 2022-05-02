@@ -19,3 +19,7 @@ spec:
   destination:
     server: "https://kubernetes.default.svc"
     namespace: datainfra-testing
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
